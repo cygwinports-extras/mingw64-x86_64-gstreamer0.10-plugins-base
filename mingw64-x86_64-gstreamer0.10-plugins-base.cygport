@@ -1,0 +1,24 @@
+CROSS_HOST="x86_64-w64-mingw32"
+GST_PLUGINS_ENABLE="gio ogg pango theora vorbis"
+GST_PLUGINS_DISABLE="alsa gnome_vfs gst_v4l ivorbis libvisual x xvideo"
+ORIG_PN="gst-plugins-base"
+inherit cross gst-plugins
+
+NAME="mingw64-x86_64-gstreamer0.10-plugins-base"
+VERSION=0.10.36
+RELEASE=3
+CATEGORY="Devel"
+SUMMARY="GStreamer 0.10 Base Plug-ins for Win64 toolchain"
+DESCRIPTION="GStreamer Base Plug-ins is a well-groomed and well-maintained
+collection of GStreamer plug-ins and elements, spanning the range of possible
+types of elements one would want to write for GStreamer. It also contains
+helper libraries and base classes useful for writing elements. A wide range
+of video and audio decoders, encoders, and filters are included."
+
+CYGCONF_ARGS="--disable-static"
+
+src_install() {
+	cd ${B}
+	cyginstall bin_PROGRAMS= bin_SCRIPTS= man_MANS=
+}
+
